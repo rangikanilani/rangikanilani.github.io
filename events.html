@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hazards on New Zealand Roads</title>
+    <!--    TODO change -->
+    <style>
+      .box {
+        float: left;
+        overflow: hidden;
+      }
+
+      #map {
+        width: 100%;
+        height: 98vh;
+      }
+
+      .sidepanel {
+        width: 0;
+        position: fixed;
+        z-index: 100000;
+        height: 94vh;
+        top: 0;
+        right: 0;
+        background-color: #ffffff;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        border: 1px solid gray;
+      }
+
+      .sidepanel .box {
+        padding: 5px 5px 5px 10px;
+      }
+
+      .sidepanel .closebtn {
+        position: absolute;
+        top: 0;
+        left: 25px;
+        font-size: 36px;
+        text-decoration: none;
+        color: #818181;
+      }
+
+      .alert {
+        float: right;
+      }
+
+      table td {
+        border: 1px solid black;
+      }
+      .warn {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="./js/leaflet/leaflet.css"
+      access_token="pk.eyJ1IjoicmFuZ2FuYW1pdCIsImEiOiJja2VkdHM1NHkwNXpjMnpvOXR6OWNzdWdhIn0.lS18w5kKrgNURklmo7vpIw"
+      crossorigin=""
+    />
+    <script src="./js/jquery_3.js"></script>
+    <script
+      src="./js/leaflet/leaflet.js"
+      access_token="pk.eyJ1IjoicmFuZ2FuYW1pdCIsImEiOiJja2VkdHM1NHkwNXpjMnpvOXR6OWNzdWdhIn0.lS18w5kKrgNURklmo7vpIw"
+      crossorigin=""
+    ></script>
+    <script>
+      $(document).ready(function () {
+        let popuphtml = `<img class="alert" src="./img/alert.png"><b>What</b> one die <br> <b>When</b> 6.30am Saturday 6th November 2021 <br>
+<b>Where</b> Rakaia road <br>
+<b>Impact</b> one die <br> <img src="./img/one.png"> <br> <a class="slide-toggle" href="#" onclick="openNav()">View More</a>`;
+
+        let map = L.map("map").setView([-43.76456, 172.019259], 13);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+
+        L.marker([-43.76456, 172.019259]).addTo(map).bindPopup(popuphtml);
+
+        $("input[type=file]").change(function () {
+          var val = $(this).val().toLowerCase(),
+            regex = new RegExp("(.*?)\.(docx|doc|pdf|html|png|jpg|jpeg)$");
+
+          if (!regex.test(val)) {
+            $(this).val("");
+            alert("Please select correct file format");
+          }
+        });
+      });
+
+      function openNav() {
+        document.getElementById("mySidepanel").style.width = "500px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+      }
+
+      function openNavTwo() {
+        document.getElementById("mySidepanelTwo").style.width = "500px";
+      }
+
+      function closeNavTwo() {
+        document.getElementById("mySidepanelTwo").style.width = "0";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="mySidepanel" class="sidepanel">
+      <!-- <div> -->
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <div class="box">
+        <b>News Headline: </b>
+        <ul>
+          <li>
+            <a
+              target="”_blank”"
+              href="https://www.rnz.co.nz/news/national/455083/one-dead-after-vehicle-hits-pedestrian-on-sh1-in-canterbury"
+            >
+              One dead after vehicle hits pedestrian on SH1 in Canterbury.</a
+            >
+          </li>
+          <li>
+            <a
+              target="”_blank”"
+              href="https://www.stuff.co.nz/national/126910534/one-dead-after-crash-near-rakaia"
+            >
+              One dead after crash near Rakaia</a
+            >
+          </li>
+        </ul>
+
+        <b>Tweets: </b>
+        <ul>
+          <li>
+            I still don't believe that I saw the poor guy was crushed by the car
+            near Pendarves Rakaia road
+          </li>
+          <li>
+            First eye witness crash. Chertsey line and Pendarves Rakaia roads.
+            <br />
+            He was an innocent pedestrian but died on the spot
+          </li>
+        </ul>
+
+        <b>Images:</b> <br />
+        <img src="./img/one.png" />
+        <img src="./img/two.png" /><br />
+        <img src="./img/three.png" />
+      </div>
+      <div class="box">
+        <b>Voice Recording:</b> <br />
+        <audio controls>
+          <!-- <source src="./media/horse.ogg" type="audio/ogg" /> -->
+          <source src="./media/voice.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <br />
+      <div class="box" style="width: 100%">
+        <b></b> <br />
+        <button
+          onclick="openNavTwo()"
+          title="view live traffic count from CCTV traffic data"
+        >
+          View Traffic Data
+        </button>
+      </div>
+    </div>
+
+    <!-- second panel -->
+
+    <div id="mySidepanelTwo" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavTwo()"
+        >×</a
+      >
+      <div class="box">
+        <b>Traffic Video</b>
+        <iframe
+          width="460"
+          height="300"
+          src="https://www.youtube.com/embed/AQQXCKIcUQc"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="box">
+        <b>Plot</b>
+        <img
+          src="./img/Figure_1.png"
+          alt="plt"
+          srcset=""
+          style="height: 250px; width: 460px"
+        />
+      </div>
+
+      <div class="box">
+        <b>Historial events happened at the location</b>
+        <table>
+          <tr>
+            <td>What</td>
+            <td>When</td>
+            <td>Where</td>
+            <td>Impact</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Critically injured</td>
+            <td>5.30pm Monday 25th January 2021</td>
+            <td>Rakaia Road</td>
+            <td>One critically injured</td>
+            <td>
+              <img src="./img/icons/severe.png" alt="" srcset="" class="warn" />
+            </td>
+          </tr>
+          <tr>
+            <td>Accident</td>
+            <td>2.40am Tuesday 22nd of March 2021</td>
+            <td>Rakia Road</td>
+            <td>None</td>
+            <td>
+              <img src="./img/icons/minor.png" alt="" srcset="" class="warn" />
+            </td>
+          </tr>
+          <tr>
+            <td>Moderate injuries</td>
+            <td>6.20pm Saturday 5th of May 2021</td>
+            <td>Rakia Road</td>
+            <td>Moderate injury</td>
+            <td>
+              <img
+                src="./img/icons/moderate.png"
+                alt=""
+                srcset=""
+                class="warn"
+              />
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="box">
+        <p>
+          Do you want to manually add data? (You can add doc, pdf, html, png,
+          jpeg)
+        </p>
+        <input type="file" value="Add" name="fileInput" id="fileInput" />
+      </div>
+      <br />
+      <br />
+    </div>
+
+    <div id="map">
+      <p>test</p>
+    </div>
+  </body>
+</html>
