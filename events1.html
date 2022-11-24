@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Hazards on New Zealand Roads</title>
+    <title>Nepal Earthquake 2015</title>
     <!--    TODO change -->
     <style>
       .box {
@@ -69,18 +69,18 @@
     ></script>
     <script>
       $(document).ready(function () {
-        let popuphtml = `<img class="alert" src="./img/alert.png"><b>What</b> one die <br> <b>When</b> 6.30am Saturday 6th November 2021 <br>
-<b>Where</b> Rakaia road <br>
-<b>Impact</b> one die <br> <img src="./img/one.png"> <br> <a class="slide-toggle" href="#" onclick="openNav()">View More</a>`;
+        let popuphtml = `<b>What</b> Dharahara tower collapse <br> <b>When</b> Saturday (25 April 2015) <br>
+<b>Where</b> Kathmandu <br>
+ <br> <img src="./img/temp.jpeg" width="200"> <br> <a class="slide-toggle" href="#" onclick="openNav()">View More</a>`;
 
-        let map = L.map("map").setView([-43.76456, 172.019259], 13);
+        let map = L.map("map").setView([27.700001, 85.333336], 13);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }).addTo(map);
 
-        L.marker([-43.76456, 172.019259]).addTo(map).bindPopup(popuphtml);
+        L.marker([27.700001, 85.333336]).addTo(map).bindPopup(popuphtml);
 
         $("input[type=file]").change(function () {
           var val = $(this).val().toLowerCase(),
@@ -121,17 +121,17 @@
           <li>
             <a
               target="”_blank”"
-              href="https://www.rnz.co.nz/news/national/455083/one-dead-after-vehicle-hits-pedestrian-on-sh1-in-canterbury"
+              href="https://www.bbc.com/news/world-asia-32463406"
             >
-              One dead after vehicle hits pedestrian on SH1 in Canterbury.</a
+            Nepal landmarks flattened by the quake.</a
             >
           </li>
           <li>
             <a
               target="”_blank”"
-              href="https://www.stuff.co.nz/national/126910534/one-dead-after-crash-near-rakaia"
+              href="https://www.reuters.com/article/us-quake-nepal-tower-idUKKBN0NG08R20150425"
             >
-              One dead after crash near Rakaia</a
+            Historic tower collapses in Kathmandu after quake</a
             >
           </li>
         </ul>
@@ -139,27 +139,33 @@
         <b>Tweets: </b>
         <ul>
           <li>
-            I still don't believe that I saw the poor guy was crushed by the car
-            near Pendarves Rakaia road
+            <a
+              target="”_blank”"
+              href="https://twitter.com/k_ashesh/status/591961103854272512"
+            >
+            Before and after- Dharhara Tower of Kathmandu, Nepal. Prayers with the departed soul. Stay strong Nepal! #earthquake</a
+            >
           </li>
           <li>
-            First eye witness crash. Chertsey line and Pendarves Rakaia roads.
-            <br />
-            He was an innocent pedestrian but died on the spot
+            <a
+              target="”_blank”"
+              href="https://twitter.com/Biorahul/status/591873958879760385"
+            >
+            The historic #Dharhara tower in #Nepal destroyed by the #Earthquake Prayers!
+            </a
+            >
           </li>
         </ul>
-<!--
+
         <b>Images:</b> <br />
-        <img src="./img/one.png" />
-        <img src="./img/two.png" /><br />
-        <img src="./img/three.png" />-->
+        <img src="./img/one.jpeg" width="200"/>
+        <img src="./img/two.jpeg" width="200"/><br />
+        <img src="./img/three.jpg" width="200"/> 
       </div>
-		
-<!--		
-      <div class="box">
+      <!-- <div class="box">
         <b>Voice Recording:</b> <br />
         <audio controls>
-           <source src="./media/horse.ogg" type="audio/ogg" /> 
+          <source src="./media/horse.ogg" type="audio/ogg" />
           <source src="./media/voice.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
@@ -173,7 +179,7 @@
         >
           View Traffic Data
         </button>
-      </div>-->
+      </div> -->
     </div>
 
     <!-- second panel -->
